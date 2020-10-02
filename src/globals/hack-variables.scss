@@ -1,6 +1,6 @@
 // HackUCI Styling variables
 
-// Ember Style colors
+// HackUCI Ember Theme colors
 $ember-blue: #2e3a4d;
 $ember-purple: #41436A;
 $ember-maroon: #984063;
@@ -13,7 +13,16 @@ $white: #fefefe;
 $dark-gray: #2e2e2e;
 
 // Spacings
+$xl-spacing: 6rem;
 $large-spacing: 4rem;
 $medium-spacing: 2rem;
 $small-spacing: 1rem;
 $tiny-spacing: 0.5rem;
+
+// Shadows
+$small-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+$large-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+// Background Gradient
+$left-gradient: #FF5F6D;
+$right-gradient: #FFC371;

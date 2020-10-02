@@ -2,6 +2,7 @@
 import React from "react";
 import "./App.scss";
 import "globals/hack-styles.scss";
+import '../node_modules/react-vis/dist/style.css';
 
 // Installed dependency imports
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";

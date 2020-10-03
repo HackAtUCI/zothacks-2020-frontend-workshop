@@ -9,10 +9,61 @@
   justify-content: center;
 
   .selected-stock {
+    max-width: 80vw;
     width: 600px;
     height: 500px;
     box-shadow: $large-shadow;
     background: $white;
+    display: flex;
+    flex-flow: column;
+    flex-direction: column;
+    border-radius: $small-spacing;
+
+    .stock-info {
+      display: flex;
+      flex-direction: row;
+      height: fit-content;
+      width: calc(100% - 4rem);
+      padding: $medium-spacing;
+      padding-top: $small-spacing;
+
+      img {
+        width: 60px;
+        height: 60px;
+        margin-top: $medium-spacing;
+        border-radius: 50%;
+      }
+
+      .stock-titles {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        margin-left: $medium-spacing;
+        margin-top: $medium-spacing;
+        height: fit-content;
+
+        h2 {
+          margin: 0;
+          margin-bottom: $small-spacing;
+        }
+
+        h3 {
+          margin: 0;
+          color: $light-gray;
+          margin-bottom: $small-spacing;
+        }
+      }
+    }
+
+    .chart-wrapper {
+      flex: 1 1;
+      background-color: #2e2e2e;
+      height: 100%;
+      transform: scaleY(1.1);
+      width: calc(100% - 8rem);
+      border-radius: $small-spacing;
+      padding: $medium-spacing;
+    }
   }
 }
 

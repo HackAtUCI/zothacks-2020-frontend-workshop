@@ -20,7 +20,7 @@ function App() {
             component={UserList}
           />
           <Route 
-            exact path={"/user/:userId"}
+            exact path={"/stock/:selectedCompany"}
             component={UserStock}
           />
         </Switch>

@@ -5,9 +5,17 @@ import { Link } from "react-router-dom";
 
 function UserCard({ user }) {
   return (
-    <Link to={"/user/" + user}>
+    <Link to={"/stock/" + user.favoriteCompany}>
       <div className="user-card">
-        hello user
+        <h2>
+          {user.firstName} {user.lastName}
+        </h2>
+        <h3>
+          {user.email}
+        </h3>
+        <h4>
+          {user.favoriteCompany}
+        </h4>
       </div>
     </Link>
   );

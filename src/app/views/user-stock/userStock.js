@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./userStock.scss";
 
 import axios from "axios";
+import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import {
   FlexibleXYPlot,
@@ -67,24 +68,69 @@ function UserStock() {
 
   return (
     <div className="user-stock">
-      <div className="selected-stock flex-center">
+      <motion.div
+        animate={{
+          opacity: [0, 1],
+        }}
+        transition={{
+          duration: 1,
+        }}
+        className="selected-stock flex-center"
+      >
         <div className="stock-info">
-          <img src={`//logo.clearbit.com/${(stock ? stock.companyName : "")}.com`}/>
+          <img
+            src={`//logo.clearbit.com/${stock ? stock.companyName : ""}.com`}
+          />
           <div className="stock-titles">
-            <h2>{(stock || {}).companyName}</h2>
-            <h3>{(stock || {}).symbol}</h3>
+            <motion.h2
+              animate={{
+                opacity: [0, 1],
+              }}
+              transition={{
+                duration: 1,
+                delay: 0.5,
+              }}
+            >
+              {(stock || {}).companyName}
+            </motion.h2>
+            <motion.h3
+              animate={{
+                opacity: [0, 1],
+              }}
+              transition={{
+                duration: 1,
+                delay: 0.8,
+              }}
+            >
+              {(stock || {}).symbol}
+            </motion.h3>
           </div>
         </div>
-        <div className="chart-wrapper">
-          <FlexibleXYPlot margin={{left: 50}}>
+        <motion.div
+          animate={{
+            y: [-30, 0],
+            opacity: [0, 1],
+            scaleY: [1.1, 1.1],
+          }}
+          transition={{
+            duration: 1,
+            delay: 0.9,
+          }}
+          className="chart-wrapper"
+        >
+          <FlexibleXYPlot margin={{ left: 50 }}>
             <VerticalGridLines />
             <HorizontalGridLines />
-            <XAxis title="Date" style={{text: {fill: "white"}}}/>
-            <YAxis title="Price" style={{text: {fill: "white"}}}/>
-            <LineSeries className="first-seriess" data={formatStockPrices()} color="limegreen"/>
+            <XAxis title="Date" style={{ text: { fill: "white" } }} />
+            <YAxis title="Price" style={{ text: { fill: "white" } }} />
+            <LineSeries
+              className="first-seriess"
+              data={formatStockPrices()}
+              color="limegreen"
+            />
           </FlexibleXYPlot>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

@@ -56,9 +56,8 @@
     }
 
     .chart-wrapper {
-      flex: 1 1;
       background-color: #2e2e2e;
-      height: 100%;
+      height: 110%;
       transform: scaleY(1.1);
       width: calc(100% - 8rem);
       border-radius: $small-spacing;

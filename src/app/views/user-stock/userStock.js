@@ -78,7 +78,14 @@ function UserStock() {
         className="selected-stock flex-center"
       >
         <div className="stock-info">
-          <img
+          <motion.img
+            animate={{
+              opacity: [0, 1],
+            }}
+            transition={{
+              duration: 1,
+              delay: 0.5,
+            }}
             src={`//logo.clearbit.com/${stock ? stock.companyName : ""}.com`}
           />
           <div className="stock-titles">

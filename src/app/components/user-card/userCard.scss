@@ -9,6 +9,8 @@
   text-decoration: none;
   transition: 0.5s all;
   text-align: left;
+  border-radius: $small-spacing;
+  position: relative;
 
   h2 {
     margin: 0;
@@ -18,10 +20,19 @@
   h3 {
     margin: 0;
     margin-bottom: $small-spacing;
+    color: $light-gray;
   }
 
   h4 {
     margin: 0;
+    color: $light-gray;
+  }
+
+  .tag {
+    color: $white;
+    position: absolute;
+    left: -50px;
+    top: 6px;
   }
 }
 

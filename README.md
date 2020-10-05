@@ -22,6 +22,10 @@ This is the command you will use before deploying your project, there will be se
 
 ## Workshop Materials
 
+### Video Links
+
+* [TBD](https://google.com/)
+
 ### Included Packages
 
 * [ReactJS](https://reactjs.org/)
@@ -30,3 +34,9 @@ This is the command you will use before deploying your project, there will be se
 * [Node-sass](https://sass-lang.com/)
 * [Axios](https://www.npmjs.com/package/axios)
 * [Framer Motion](https://www.framer.com/motion/)
+
+## Final Product Screenshots
+
+#### Stock View
+<img width="1633" alt="Screen Shot 2020-10-02 at 9 31 01 PM" src="https://user-images.githubusercontent.com/13127625/95133850-c9212680-0716-11eb-8808-8167e208fd63.png">
+

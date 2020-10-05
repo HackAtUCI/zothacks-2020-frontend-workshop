@@ -21,7 +21,7 @@ function UserList() {
     
     // If we get a valid response, set the state object, or print an error.
     if (users.status === 200) {
-      setUsers(users.data);
+      setUsers(users.data.data);
     } else {
       console.log("Error retrieving users");
     }

@@ -2,7 +2,7 @@
 
 This is the project repository for the ZotHacks Front-end workshop materials. Across the repository there are several branches representing different stages of the process.
 
-This project was created using the HackUCI React Template, which was bootstrapped off of [Create React App](https://github.com/facebook/create-react-app).
+This project was created using the [HackUCI React Template](https://github.com/hackuci/React-Template), which was bootstrapped off of [Create React App](https://github.com/facebook/create-react-app).
 
 ## Relevant Available Scripts 
 

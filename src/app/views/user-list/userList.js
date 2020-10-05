@@ -17,7 +17,7 @@ function UserList() {
     let users = await axios.get("http://127.0.0.1:5000/user");
     
     if (users.status === 200) {
-      setUsers(users.data);
+      setUsers(users.data.data);
     } else {
       console.log("Error retrieving users");
     }

@@ -19,11 +19,11 @@ function UserStock() {
   const [stock, setStock] = useState(null);
   const [stockPrices, setStockPrices] = useState(null);
   // UseParams hook gets the variable in the URL, utilizing the variable name in the route param in App.js
-  let { selectedCompany } = useParams();
+  let { selectedStockId } = useParams();
 
   // If we have a valid selected company, then we can get the stock information
   useEffect(() => {
-    if (selectedCompany) {
+    if (selectedStockId) {
       getStock();
     } else {
       console.log("Invalid selectedCompany");
@@ -40,12 +40,12 @@ function UserStock() {
   // Performs a GET request to the backend API to get the stock information for the given company
   async function getStock() {
     let stocks = await axios.get(
-      "http://127.0.0.1:5000/stock?companyName=" + selectedCompany
+      "http://127.0.0.1:5000/stock?_id=" + selectedStockId
     );
 
     // If we have a valid request and have at least one stock pulled, we can set the selected stock
     if (stocks.status === 200 && stocks.data) {
-      setStock(stocks.data[0]);
+      setStock(stocks.data.data[0]);
     } else {
       console.log("Error pulling stock");
     }

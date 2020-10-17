@@ -8,7 +8,7 @@ import '../node_modules/react-vis/dist/style.css';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 // Website imports for classes you made
-import { UserList, UserStock } from "app/views";
+import { UserList } from "app/views";
 
 function App() {
   return (
@@ -18,10 +18,6 @@ function App() {
           <Route 
             exact path={"/"}
             component={UserList}
-          />
-          <Route 
-            exact path={"/stock/:selectedStockId"}
-            component={UserStock}
           />
         </Switch>
       </Router>

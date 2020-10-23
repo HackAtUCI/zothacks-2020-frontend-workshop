@@ -8,6 +8,10 @@ This project was created using the [HackUCI React Template](https://github.com/h
 
 In the project directory, you can run:
 
+#### `yarn install`
+
+Installs dependencies listed in package.json into the application.
+
 #### `yarn start`
 
 Runs the app in the development mode.<br />
@@ -21,6 +25,10 @@ It correctly bundles React in production mode and optimizes the build for the be
 This is the command you will use before deploying your project, there will be seperate workshop materials for this.
 
 ## Workshop Materials
+
+### Deployment Link
+
+The URL for defining the homepage is http://<your_github_username_here>.github.io/<name_of_repo>
 
 ### Video Links
 

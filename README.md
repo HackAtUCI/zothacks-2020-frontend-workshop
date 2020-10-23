@@ -28,7 +28,7 @@ This is the command you will use before deploying your project, there will be se
 
 ### Deployment Link
 
-The URL for defining the homepage is http://<your_github_username_here>.github.io/<name_of_repo>
+The URL for defining the homepage is `http://<your_github_username_here>.github.io/<name_of_repo>`
 
 ### Video Links
 

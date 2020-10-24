@@ -6,7 +6,6 @@ import { motion } from "framer-motion"
 
 function UserCard({ user, number }) {
   return (
-    // Apply a link to the card, so when the card is clicked, it routes to that users favorite company
     <Link to={"/stock/" + user.favoriteStockId}>
       <motion.div 
         initial={{ opacity: 0 }}

@@ -3,7 +3,8 @@ import "./userList.scss";
 
 import axios from "axios"
 
-import { UserCard } from "app/components";
+import { UserCard} from "app/components";
+import CreateUserModal from 'app/components/createUserModal/createUserModal.js';
 
 function UserList() {
 
@@ -29,6 +30,7 @@ function UserList() {
 
   return (
     <div className="user-list">
+      <CreateUserModal /> 
       {(users || []).map(function (user, index) {
         return <UserCard user={user} key={index} number={index}/>;
       })}

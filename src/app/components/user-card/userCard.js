@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion"
 
 function UserCard({ user, number }) {
+  console.log(user);
   return (
     // Apply a link to the card, so when the card is clicked, it routes to that users favorite company
     <Link to={"/stock/" + user.favoriteStockId}>

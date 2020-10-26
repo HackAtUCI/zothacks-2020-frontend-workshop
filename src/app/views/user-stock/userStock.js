@@ -40,7 +40,7 @@ function UserStock() {
   // Performs a GET request to the backend API to get the stock information for the given company
   async function getStock() {
     let stocks = await axios.get(
-      "http://127.0.0.1:5000/stock?_id=" + selectedStockId
+      "https://zothacks-2020-workshop.herokuapp.com/stock?_id=" + selectedStockId
     );
 
     // If we have a valid request and have at least one stock pulled, we can set the selected stock

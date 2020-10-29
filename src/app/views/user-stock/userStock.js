@@ -14,7 +14,7 @@ import {
 } from "react-vis";
 
 function UserStock() {
-  
+
   // Variables containing stock information for this page
   const [stock, setStock] = useState(null);
   const [stockPrices, setStockPrices] = useState(null);
@@ -42,7 +42,7 @@ function UserStock() {
     let stocks = await axios.get(
       "https://zothacks-2020-workshop.herokuapp.com/stock?_id=" + selectedStockId
     );
-
+    
     // If we have a valid request and have at least one stock pulled, we can set the selected stock
     if (stocks.status === 200 && stocks.data) {
       setStock(stocks.data.data[0]);
@@ -51,7 +51,7 @@ function UserStock() {
     }
   }
 
-  // Performs a GET request to the Finnhub API to get some prices from the stock 
+  // Performs a GET request to the Finnhub API to get some prices from the stock
   async function getStockPrices() {
     let finnhubResponse = await axios.get(
       `https://finnhub.io/api/v1/stock/candle?symbol=${stock.symbol}&resolution=1&from=1572651390&to=1572910590&token=${process.env.REACT_APP_FINNHUB_SECRET}`

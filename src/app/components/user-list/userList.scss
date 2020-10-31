@@ -12,17 +12,3 @@
     text-decoration: none;
   }
 }
-
-.button {
-  padding: 1em;
-  border-radius: 0.5em;
-  background: $small-shadow;
-  border: none;
-  font-weight: bold;
-  margin-top: 1em;
-}
-
-.button:hover {
-  background: #ccc;
-  cursor: pointer;
-}

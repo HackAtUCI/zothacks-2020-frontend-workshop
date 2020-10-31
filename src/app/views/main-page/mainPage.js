@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import "./userList.scss";
+import "./mainPage.scss";
 
 import axios from "axios"
 
-import { UserCard} from "app/components";
-import CreateUserModal from 'app/components/createUserModal/createUserModal.js';
+import {UserList} from "app/components";
+import {CreateUserModal} from 'app/components';
 
-function UserList() {
+function MainPage() {
+
+  const [showModal, setShowModal] = useState(false);
 
   // List of users from the database
   const [users, setUsers] = useState(null);
@@ -29,9 +31,15 @@ function UserList() {
   }
 
   return (
-    <div className="user-list">
-      <button className="button">Create User</button>
-      <CreateUserModal stocks={
+    <div>
+      <div className={showModal ? "blur" : ""}>
+        <UserList users={(users || [])}/>
+        <button className="button" onClick={() => setShowModal(true)}>Create User</button>
+      </div>
+
+    {showModal ?
+      <CreateUserModal
+        stocks={
         // todo change this to fetch from backend
         [{
           id: 2,
@@ -48,12 +56,17 @@ function UserList() {
           companyName : "Facebook",
           symbol : "FB"
         }]
-      }/>
-      {(users || []).map(function (user, index) {
-        return <UserCard user={user} key={index} number={index}/>;
-      })}
+        }
+        onCreateUser={
+          () => {
+            setShowModal(false)
+            // refresh users
+            getUserList()
+          }
+        }
+      /> : null}
     </div>
   );
 }
 
-export default UserList;
+export default MainPage;

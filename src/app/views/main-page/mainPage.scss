@@ -1,0 +1,23 @@
+@import "globals/hack-variables.scss";
+
+.blur {
+  filter: blur(8px);
+}
+
+.user-list * {
+  filter: blur(0);
+}
+
+.button {
+  padding: $tiny-spacing;
+  border-radius: $tiny-spacing;
+  background: #eee;
+  border: none;
+  font-weight: bold;
+  margin : $small-spacing;
+}
+
+.button:hover {
+background: #ccc;
+cursor: pointer;
+}

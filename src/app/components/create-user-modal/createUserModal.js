@@ -4,7 +4,7 @@ import './createUserModal.scss';
 import axios from "axios"
 
 // stocks is dict with companyName, symbol, id
-function CreateUserModal({stocks}) {
+function CreateUserModal({stocks, onCreateUser}) {
 
   const [selectedStock, setSelectedStock] = useState(null);
 
@@ -12,10 +12,12 @@ function CreateUserModal({stocks}) {
       <form
         className="myForm"
         onSubmit={
-          (event)=> {
+          (event) => {
             event.preventDefault();
-            // todo
+            onCreateUser();
+            // todo call create user endpoint
             // only submit form if selected stock is not null
+            // route to main page after
           }
         }>
           <label>First Name:</label>
@@ -36,12 +38,12 @@ function CreateUserModal({stocks}) {
           >
             {
               (stocks || []).map(function (stock) {
-                console.log(stock)
-                return <option key={stock.symbol} value={stock}>{stock.symbol}</option>
+                return <option key={stock.id} value={stock.id}>{stock.companyName + " (" + stock.symbol + ")"}</option>
               })
             }
           </select>
           <input className="button" type="submit" value="Create User" />
+          <button className="button" onClick={() => onCreateUser()}>Cancel</button>
       </form>
   );
 }

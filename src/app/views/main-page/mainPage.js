@@ -45,6 +45,11 @@ function MainPage() {
     }
   }
 
+  function refreshPage(){
+    setShowModal(false);
+    getUserList();
+  }
+
   return (
     <div>
       <div className={showModal ? "blur" : ""}>
@@ -54,14 +59,8 @@ function MainPage() {
 
     {showModal ?
       <CreateUserModal
-        stocks = {stocks}
-        onCreateUser={
-          () => {
-            setShowModal(false)
-            // refresh users
-            getUserList()
-          }
-        }
+        stocks = {stocks || []}
+        onCreateUser={refreshPage}
       /> : null}
     </div>
   );

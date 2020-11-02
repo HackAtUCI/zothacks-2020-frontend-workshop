@@ -8,18 +8,20 @@ function CreateUserModal({stocks, onCreateUser}) {
 
   const [selectedStock, setSelectedStock] = useState(null);
 
+  function handleSubmit(event){
+    event.preventDefault();
+    onCreateUser();
+  }
+
+  function renderStockOptions(){
+    const options = stocks.map(function (stock) {
+      return <option key={stock._id} value={stock.id}>{stock.companyName + " (" + stock.symbol + ")"}</option>
+    });
+    return options;
+  }
+
   return (
-      <form
-        className="myForm"
-        onSubmit={
-          (event) => {
-            event.preventDefault();
-            onCreateUser();
-            // todo call create user endpoint
-            // only submit form if selected stock is not null
-            // route to main page after
-          }
-        }>
+      <form className="myForm" onSubmit={handleSubmit}>
           <label>First Name:</label>
           <input type="text" name="fname" required></input>
 
@@ -36,11 +38,12 @@ function CreateUserModal({stocks, onCreateUser}) {
             onChange={(event) => {
               setSelectedStock(event.target.value)}}
           >
-            {
+            {renderStockOptions()}
+            {/* {
               (stocks || []).map(function (stock) {
                 return <option key={stock.id} value={stock.id}>{stock.companyName + " (" + stock.symbol + ")"}</option>
               })
-            }
+            } */}
           </select>
           <input className="button" type="submit" value="Create User" />
           <button className="button" onClick={() => onCreateUser()}>Cancel</button>

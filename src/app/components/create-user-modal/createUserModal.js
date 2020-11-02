@@ -10,6 +10,7 @@ function CreateUserModal({stocks, onCreateUser}) {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [selectedStock, setSelectedStock] = useState(stocks[0]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleCancel(){
     onCreateUser();
@@ -35,7 +36,7 @@ function CreateUserModal({stocks, onCreateUser}) {
       // go back to main page and render updated userList 
       onCreateUser();
     }else{
-      console.log("Failed to create user"); // CHANGE THIS INTO AN ACTUAL ERROR MESSAGE ON MODAL LATER! 
+      setErrorMessage("Failed to create user. Please try again.")
     }
   }
 
@@ -68,7 +69,9 @@ function CreateUserModal({stocks, onCreateUser}) {
           </select>
           <input className="button" type="submit" value="Create User" />
           <button className="button" onClick={handleCancel}>Cancel</button>
+          <p id = "error-message">{errorMessage}</p>
       </form>
+      
   );
 }
 

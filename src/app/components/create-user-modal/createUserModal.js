@@ -6,15 +6,37 @@ import axios from "axios"
 // stocks is dict with companyName, symbol, id
 function CreateUserModal({stocks, onCreateUser}) {
 
-  const [selectedStock, setSelectedStock] = useState(null);
-
-  function handleSubmit(event){
-    event.preventDefault();
-    onCreateUser();
-  }
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [selectedStock, setSelectedStock] = useState(stocks[0]);
 
   function handleCancel(){
     onCreateUser();
+  }
+
+  async function handleSubmit(event){
+    event.preventDefault();
+
+    console.log(selectedStock);
+
+    // Put together new user information
+    const newUser = {
+      firstName: firstName, 
+      lastName: lastName, 
+      email: email, 
+      favoriteStockId: selectedStock._id
+    }
+
+    // Create new user by sending a POST request to the backend 
+    const createdUser = await axios.post("https://zothacks-2020-workshop.herokuapp.com/user", newUser);
+
+    if (createdUser.status === 200 && createdUser.data){
+      // go back to main page and render updated userList 
+      onCreateUser();
+    }else{
+      console.log("Failed to create user"); // CHANGE THIS INTO AN ACTUAL ERROR MESSAGE ON MODAL LATER! 
+    }
   }
 
   function renderStockOptions(){
@@ -27,20 +49,20 @@ function CreateUserModal({stocks, onCreateUser}) {
   return (
       <form className="myForm" onSubmit={handleSubmit}>
           <label>First Name:</label>
-          <input type="text" name="fname" required></input>
+          <input type="text" name="fname" value = {firstName} onChange = {(event) => setFirstName(event.target.value)} required></input>
 
           <label>Last Name:</label>
-          <input type="text" name="lname" required></input>
+          <input type="text" name="lname" value = {lastName} onChange = {(event) => setLastName(event.target.value)} required></input>
 
           <label>Email:</label>
-          <input type="email" name="email_address"></input>
+          <input type="email" name="email_address" value = {email} onChange = {(event) => setEmail(event.target.value)}></input>
 
           <label>Favorite Stock</label>
           <select
             id="fav-stock"
             name="fav-stock"
-            onChange={(event) => {
-              setSelectedStock(event.target.value)}}
+            value = {selectedStock} // might want to handle no selection better later
+            onChange={(event) => {setSelectedStock(event.target.value)}}
           >
             {renderStockOptions()}
           </select>

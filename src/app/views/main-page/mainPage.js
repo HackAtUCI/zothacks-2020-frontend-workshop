@@ -45,6 +45,10 @@ function MainPage() {
     }
   }
 
+  function handleCreateButtonClick(){
+    setShowModal(true);
+  }
+
   function refreshPage(){
     setShowModal(false);
     getUserList();
@@ -54,7 +58,7 @@ function MainPage() {
     <div>
       <div className={showModal ? "blur" : ""}>
         <UserList users={(users || [])}/>
-        <button className="button" onClick={() => setShowModal(true)}>Create User</button>
+        <button className="button" onClick={handleCreateButtonClick}>Create User</button>
       </div>
 
     {showModal ?

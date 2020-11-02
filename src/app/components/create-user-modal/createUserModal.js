@@ -13,6 +13,10 @@ function CreateUserModal({stocks, onCreateUser}) {
     onCreateUser();
   }
 
+  function handleCancel(){
+    onCreateUser();
+  }
+
   function renderStockOptions(){
     const options = stocks.map(function (stock) {
       return <option key={stock._id} value={stock.id}>{stock.companyName + " (" + stock.symbol + ")"}</option>
@@ -39,14 +43,9 @@ function CreateUserModal({stocks, onCreateUser}) {
               setSelectedStock(event.target.value)}}
           >
             {renderStockOptions()}
-            {/* {
-              (stocks || []).map(function (stock) {
-                return <option key={stock.id} value={stock.id}>{stock.companyName + " (" + stock.symbol + ")"}</option>
-              })
-            } */}
           </select>
           <input className="button" type="submit" value="Create User" />
-          <button className="button" onClick={() => onCreateUser()}>Cancel</button>
+          <button className="button" onClick={handleCancel}>Cancel</button>
       </form>
   );
 }

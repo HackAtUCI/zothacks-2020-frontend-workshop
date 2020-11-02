@@ -1,0 +1,39 @@
+@import "globals/hack-variables.scss";
+
+.myForm {
+  font-size: 0.8em;
+  width: 20em;
+  padding: $tiny-spacing;
+  border: none;
+  background-color: $light-gray;
+  border-radius: $tiny-spacing;
+
+  // https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/
+  position: fixed; // positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.myForm * {
+  box-sizing: border-box;
+}
+
+.myForm label {
+  display: block;
+  margin-bottom: $tiny-spacing;
+  font-weight: bold;
+}
+
+.myForm input[type="text"],
+.myForm input[type="email"],
+.myForm select {
+  border-radius: $tiny-spacing;
+  display: block;
+  width: 100%;
+  border: none;
+  font-size: 0.9em;
+  padding: 0.3em;
+  margin-bottom: $small-spacing;
+  color: black;
+}

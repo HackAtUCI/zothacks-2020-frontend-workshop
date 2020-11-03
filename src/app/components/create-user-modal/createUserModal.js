@@ -7,11 +7,10 @@ import axios from "axios"
 
 // stocks is dict with companyName, symbol, id
 function CreateUserModal({ stocks, onCreateUser }) {
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [selectedStock, setSelectedStock] = useState(stocks[0]);
+  const [selectedStockId, setSelectedStockId] = useState(stocks[0]._id);
   const [errorMessage, setErrorMessage] = useState("");
 
   function handleCancel() {
@@ -26,7 +25,7 @@ function CreateUserModal({ stocks, onCreateUser }) {
       firstName: firstName,
       lastName: lastName,
       email: email,
-      favoriteStockId: selectedStock._id
+      favoriteStockId: selectedStockId
     }
 
     // Create new user by sending a POST request to the backend 
@@ -37,13 +36,14 @@ function CreateUserModal({ stocks, onCreateUser }) {
       setErrorMessage("");
       onCreateUser();
     } else {
+      console.log("Failure occured");
       setErrorMessage("Failed to create user. Please try again.")
     }
   }
 
   function renderStockOptions() {
     const options = stocks.map(function (stock) {
-      return <option key={stock._id} value={stock.id}>{stock.companyName + " (" + stock.symbol + ")"}</option>
+      return <option key={stock._id} value={stock._id}>{stock.companyName + " (" + stock.symbol + ")"}</option>
     });
     return options;
   }
@@ -72,8 +72,8 @@ function CreateUserModal({ stocks, onCreateUser }) {
         <select
           id="fav-stock"
           name="fav-stock"
-          value={selectedStock} // might want to handle no selection better later
-          onChange={(event) => { setSelectedStock(event.target.value) }}
+          value={selectedStockId} // might want to handle no selection better later
+          onChange={(event) => { setSelectedStockId(event.target.value) }}
         >
           {renderStockOptions()}
         </select>

@@ -62,6 +62,7 @@ function MainPage() {
       </div>
 
     {showModal ?
+    
       <CreateUserModal
         stocks = {stocks || []}
         onCreateUser={refreshPage}

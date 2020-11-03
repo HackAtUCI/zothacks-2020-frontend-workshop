@@ -58,7 +58,7 @@ function MainPage() {
     <div>
       <div className={showModal ? "blur" : ""}>
         <UserList users={(users || [])}/>
-        <button className="button" onClick={handleCreateButtonClick}>Create User</button>
+        <button className="button" id = "create-button" onClick={handleCreateButtonClick}>Create New User</button>
       </div>
 
     {showModal ?

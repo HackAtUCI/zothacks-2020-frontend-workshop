@@ -8,13 +8,19 @@
   filter: blur(0);
 }
 
-.button {
-  padding: $tiny-spacing;
+.button{
+  padding: $tiny-spacing $small-spacing $tiny-spacing $small-spacing ;
   border-radius: $tiny-spacing;
-  background: #eee;
+  background: white;
   border: none;
   font-weight: bold;
   margin : $small-spacing;
+  margin : $small-spacing;
+}
+
+#create-button {
+  margin-bottom: $large-spacing;
+  padding: $small-spacing;
 }
 
 .button:hover {

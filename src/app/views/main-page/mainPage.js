@@ -13,9 +13,13 @@ function MainPage() {
   // List of users from the database
   const [users, setUsers] = useState(null);
 
+  /// List of stocks from database
+  const [stocks, setStocks] = useState(null);
+
   // Get the list of users from the database upon page load
   useEffect(() => {
     getUserList();
+    getStockList();
   }, []);
 
   // Get the list of users through a GET request to the backend API
@@ -30,40 +34,38 @@ function MainPage() {
     }
   }
 
+  // Get the list of stocks through a GET request to the backend API
+  async function getStockList(){
+    let stocks = await axios.get("https://zothacks-2020-workshop.herokuapp.com/stock");
+    if (stocks.status == 200){
+      setStocks(stocks.data.data);
+    }
+    else{
+      console.log("Error retrieving stocks");
+    }
+  }
+
+  function handleCreateButtonClick(){
+    setShowModal(true);
+  }
+
+  function refreshPage(){
+    setShowModal(false);
+    getUserList();
+  }
+
   return (
     <div>
       <div className={showModal ? "blur" : ""}>
         <UserList users={(users || [])}/>
-        <button className="button" onClick={() => setShowModal(true)}>Create User</button>
+        <button className="button" id = "create-button" onClick={handleCreateButtonClick}>Create New User</button>
       </div>
 
     {showModal ?
+    
       <CreateUserModal
-        stocks={
-        // todo change this to fetch from backend
-        [{
-          id: 2,
-          companyName : "Google",
-          symbol : "GOOGL"
-        },
-        {
-          id: 1,
-          companyName : "Apple",
-          symbol : "AAPL"
-        },
-        {
-          id: 3,
-          companyName : "Facebook",
-          symbol : "FB"
-        }]
-        }
-        onCreateUser={
-          () => {
-            setShowModal(false)
-            // refresh users
-            getUserList()
-          }
-        }
+        stocks = {stocks || []}
+        onCreateUser={refreshPage}
       /> : null}
     </div>
   );

@@ -3,9 +3,10 @@
 .myForm {
   font-size: 0.8em;
   width: 20em;
-  padding: $tiny-spacing;
+  padding: $medium-spacing;
   border: none;
-  background-color: $light-gray;
+  background-color: $ember-blue;
+  box-shadow: $large-shadow;
   border-radius: $tiny-spacing;
 
   // https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/
@@ -13,27 +14,59 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  *{
+    box-sizing: border-box;
+  }
+
+  label {
+    color: white;
+    display: block;
+    margin-bottom: $tiny-spacing;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="button"],
+  select {
+    border-radius: $tiny-spacing;
+    display: block;
+    width: 100%;
+    height: 30px;
+    border: none;
+    font-size: 0.9em;
+    padding: 0.3em;
+    margin-bottom: $small-spacing;
+    color: black;
+  }
 }
 
-.myForm * {
-  box-sizing: border-box;
+#error-message{
+  color: $ember-red;
 }
 
-.myForm label {
-  display: block;
-  margin-bottom: $tiny-spacing;
-  font-weight: bold;
-}
+// .myForm * {
+//   box-sizing: border-box;
+// }
 
-.myForm input[type="text"],
-.myForm input[type="email"],
-.myForm select {
-  border-radius: $tiny-spacing;
-  display: block;
-  width: 100%;
-  border: none;
-  font-size: 0.9em;
-  padding: 0.3em;
-  margin-bottom: $small-spacing;
-  color: black;
-}
+// .myForm label {
+//   color: white;
+//   display: block;
+//   margin-bottom: $tiny-spacing;
+//   font-weight: bold;
+// }
+
+// .myForm input[type="text"],
+// .myForm input[type="email"],
+// .myForm select {
+//   border-radius: $tiny-spacing;
+//   display: block;
+//   width: 100%;
+//   height: 30px;
+//   border: none;
+//   font-size: 0.9em;
+//   padding: 0.3em;
+//   margin-bottom: $small-spacing;
+//   color: black;
+// }

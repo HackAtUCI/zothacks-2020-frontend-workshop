@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./userList.scss";
-
-import axios from "axios"
 
 import { UserCard} from "app/components";
 

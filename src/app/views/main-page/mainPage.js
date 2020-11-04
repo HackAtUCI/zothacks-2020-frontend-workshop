@@ -34,7 +34,7 @@ function MainPage() {
   // Get the list of stocks through a GET request to the backend server
   async function getStockList(){
     let stocks = await axios.get("https://zothacks-2020-workshop.herokuapp.com/stock");
-    if (stocks.status == 200){ // on success 
+    if (stocks.status === 200){ // on success 
       setStocks(stocks.data.data);
     }
     else{ // error handling
@@ -42,6 +42,8 @@ function MainPage() {
     }
   }
 
+  // This function will be passed into the CreateUserModal child component
+  // This will allow CreateUserModal to manipulate the state of the mainPage to hide itself and refresh the user list
   function refreshPage(){
     setShowModal(false);
     getUserList();
@@ -55,7 +57,7 @@ function MainPage() {
       </div>
 
     {/* This ternary operator returns the CreateUserModal if showModal = true, else returns null => nothing will be rendered */}
-    {showModal ? <CreateUserModal stocks = {stocks || []} onCreateUser={refreshPage}/> : null}
+    {showModal ? <CreateUserModal stocks = {stocks || []} onReturn={refreshPage}/> : null}
     </div>
   );
 }

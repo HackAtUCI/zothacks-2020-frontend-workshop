@@ -4,7 +4,7 @@ import axios from "axios"
 import './createUserModal.scss';
 
 // stocks is object with the keys: companyName, symbol, id
-function CreateUserModal({ stocks, onReturn }) {
+function CreateUserModal({ stocks, onCreate, onCancel }) {
   // Set up state of this React component
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -13,7 +13,8 @@ function CreateUserModal({ stocks, onReturn }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(event) {
-    event.preventDefault(); // prevents a hard refresh
+    event.preventDefault(); // stops the default action belonging to the event from occuring
+                            // in this case, it stops the submit button from submitting the form
 
     // Use state to put together new user information
     const newUser = {
@@ -28,7 +29,7 @@ function CreateUserModal({ stocks, onReturn }) {
 
     if (createdUser.status === 200 && createdUser.data) { // User successfully created - go back to main page
       setErrorMessage("");
-      onReturn(); // hides modal and refreshes user list (passed in from the parent component (mainPage) so we can alter its state)
+      onCreate(); // hides modal and refreshes user list (passed in from the parent component (mainPage) so we can alter its state)
     } else {  // Error Handling
       setErrorMessage("Failed to create user. Please try again.")
     }
@@ -74,7 +75,7 @@ function CreateUserModal({ stocks, onReturn }) {
         </select>
 
         <input className="button" type="submit" value="Create User" />
-        <button className="button" type="button" onClick={() => onReturn()}>Cancel</button>
+        <button className="button" type="button" onClick={onCancel}>Cancel</button>
 
         <p id="error-message">{errorMessage}</p>
       </form>

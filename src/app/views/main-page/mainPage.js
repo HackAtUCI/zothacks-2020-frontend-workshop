@@ -57,7 +57,7 @@ function MainPage() {
       </div>
 
     {/* This ternary operator returns the CreateUserModal if showModal = true, else returns null => nothing will be rendered */}
-    {showModal ? <CreateUserModal stocks = {stocks || []} onReturn={refreshPage}/> : null}
+    {showModal ? <CreateUserModal stocks = {stocks || []} onCancel ={() => setShowModal(false)} onCreate={refreshPage}/> : null}
     </div>
   );
 }

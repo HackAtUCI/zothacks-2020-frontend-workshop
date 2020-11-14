@@ -54,7 +54,7 @@ function UserStock() {
   // Performs a GET request to the Finnhub API to get some prices from the stock 
   async function getStockPrices() {
     let finnhubResponse = await axios.get(
-      `https://finnhub.io/api/v1/stock/candle?symbol=${stock.symbol}&resolution=1&from=1572651390&to=1572910590&token=${process.env.REACT_APP_FINNHUB_SECRET}`
+      `https://finnhub.io/api/v1/stock/candle?symbol=${stock.symbol}&resolution=5&from=1588167000&to=1588190000&token=${process.env.REACT_APP_FINNHUB_SECRET}`
     );
 
     // If we have a valid response, we can set the object to represent the prices

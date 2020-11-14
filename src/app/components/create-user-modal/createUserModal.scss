@@ -1,0 +1,38 @@
+@import "globals/hack-variables.scss";
+
+
+.myForm {
+    font-size: 0.8em;
+    width: 20em;
+    padding: $medium-spacing;
+    background-color: $ember-blue;
+    border-radius: $tiny-spacing;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+label {
+    color: white;
+    display: block;
+    margin-bottom: $tiny-spacing;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="button"],
+select {
+    border-radius: $tiny-spacing;
+    display: block;
+    width: 100%;
+    height: 30px;
+    border: none;
+    font-size: 0.9em;
+    padding: 0.3em;
+    margin-bottom: $small-spacing;
+    color: black;
+}

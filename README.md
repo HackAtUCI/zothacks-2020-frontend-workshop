@@ -34,10 +34,6 @@ This is the command you will use before deploying your project, there will be se
 
 The URL for defining the homepage is `http://<your_github_username_here>.github.io/<name_of_repo>`
 
-### Video Links
-
-* [TBD](https://google.com/)
-
 ### Included Packages
 
 * [ReactJS](https://reactjs.org/)
